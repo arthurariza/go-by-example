@@ -1,13 +1,18 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"math"
+)
 
 func main() {
-	hello_world()
+	// hello_world()
 
-	values()
+	// values()
 
-	variables()
+	// variables()
+
+	constant()
 }
 
 func hello_world() {
@@ -40,4 +45,22 @@ func variables() {
 
 	f := "apple"
 	fmt.Println(f)
+}
+
+const s string = "constant"
+
+func constant() {
+	fmt.Println(s)
+
+	const n = 5000000
+	const m = 500_000
+
+	fmt.Println(n, m)
+
+	const d = 3e20 / n
+	fmt.Println(d)
+
+	fmt.Println(int64(d))
+
+	fmt.Println(math.Sin(n))
 }
