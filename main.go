@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"math"
+	"time"
 )
 
 func main() {
@@ -16,14 +17,59 @@ func main() {
 
 	// forr()
 
-	IfElse()
+	// IfElse()
+
+	SwitchCase()
+}
+
+func SwitchCase() {
+	i := 2
+	fmt.Print("Write ", i, " as ")
+
+	switch i {
+	case 1:
+		fmt.Println("one")
+	case 2:
+		fmt.Println("two")
+	case 3:
+		fmt.Println("three")
+	}
+
+	switch time.Now().Weekday() {
+	case time.Saturday, time.Sunday:
+		fmt.Println("It's the weekend")
+	default:
+		fmt.Println("It's a weekday")
+	}
+
+	t := time.Now()
+	switch {
+	case t.Hour() < 12:
+		fmt.Println("It's before noon")
+	default:
+		fmt.Println("It's after noon")
+	}
+
+	whatAmI := func(i interface{}) {
+		switch t := i.(type) {
+		case bool:
+			fmt.Println("I'm a bool")
+		case int:
+			fmt.Println("I'm an int")
+		default:
+			fmt.Printf("Don't know type %T\n", t)
+		}
+	}
+	whatAmI(true)
+	whatAmI(1)
+	whatAmI("hey")
 }
 
 func hello_world() {
 	fmt.Println("Hello World!")
 }
 
-func values()  {
+func values() {
 	fmt.Println("Go" + "lang")
 
 	fmt.Println("1+1 =", 1+1)
@@ -107,11 +153,11 @@ func IfElse() {
 	if num := 9; num < 0 {
 		fmt.Println(num, "is negative")
 	} else if num < 10 {
-			fmt.Println(num, "has 1 digit")
+		fmt.Println(num, "has 1 digit")
 	} else {
-			fmt.Println(num, "has multiple digits")
+		fmt.Println(num, "has multiple digits")
 	}
- 
-	// No Ternary Operator Go 
+
+	// No Ternary Operator Go
 	// 7%2 == 0 ? fmt.Println("7 is even") : fmt.Println("7 is odd")
 }
